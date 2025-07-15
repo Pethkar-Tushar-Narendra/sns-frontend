@@ -11,6 +11,8 @@ import Profile from './pages/Profile';
 import Reports from './pages/Reports';
 import Users from './pages/Users';
 import Analytics from './pages/Analytics';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   
