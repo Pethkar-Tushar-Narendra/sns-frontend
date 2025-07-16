@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Footer from './Footer';
@@ -21,8 +21,8 @@ const navigation = [
   { name: 'Analytics', href: '/analytics', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
+  // { name: 'Your Profile', href: '#' },
+  // { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
 
@@ -31,6 +31,7 @@ function classNames(...classes) {
 }
 export default function Navbar({Component}) {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   
   return (
 <div className="min-h-full">
@@ -66,14 +67,14 @@ export default function Navbar({Component}) {
               </div>
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
-                  <button
+                  {/* <button
                     type="button"
                     className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
                     <BellIcon aria-hidden="true" className="size-6" />
-                  </button>
+                  </button> */}
 
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
@@ -92,6 +93,14 @@ export default function Navbar({Component}) {
                         <MenuItem key={item.name}>
                           <a
                             href={item.href}
+                           onClick={()=>{    // Remove token
+    localStorage.removeItem('token');
+
+    // Redirect to login
+    navigate('/login');
+  
+  return null;
+}}
                             className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                           >
                             {item.name}
@@ -132,7 +141,7 @@ export default function Navbar({Component}) {
               ))}
             </div>
             <div className="border-t border-gray-700 pt-4 pb-3">
-              <div className="flex items-center px-5">
+              {/* <div className="flex items-center px-5">
                 <div className="shrink-0">
                   <img alt="" src={user.imageUrl} className="size-10 rounded-full" />
                 </div>
@@ -140,21 +149,21 @@ export default function Navbar({Component}) {
                   <div className="text-base/5 font-medium text-white">{user.name}</div>
                   <div className="text-sm font-medium text-gray-400">{user.email}</div>
                 </div>
-                <button
-                  type="button"
-                  className="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon aria-hidden="true" className="size-6" />
-                </button>
-              </div>
+              </div> */}
               <div className="mt-3 space-y-1 px-2">
                 {userNavigation.map((item) => (
                   <DisclosureButton
                     key={item.name}
                     as="a"
                     href={item.href}
+                    onClick={()=>{    // Remove token
+    localStorage.removeItem('token');
+
+    // Redirect to login
+    navigate('/login');
+  
+  return null;
+}}
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     {item.name}

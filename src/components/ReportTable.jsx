@@ -6,6 +6,8 @@ export default function ReportTable({ reports, onUpdate }) {
       await API.post(`/admin/reports/${id}/action`, { action });
       onUpdate();
     } catch (err) {
+      console.log(err);
+      
       alert(`Failed to ${action} report`);
     }
   };
