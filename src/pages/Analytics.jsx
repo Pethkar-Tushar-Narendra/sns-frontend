@@ -26,8 +26,7 @@ export default function Dashboard() {
   };
 
   return (<Navbar Component={
-    <div className="p-6 space-y-6">
-      <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+    <div className="py-6 space-y-6">
 
       {/* Metrics Section */}
       <div className="grid gap-6 md:grid-cols-4">

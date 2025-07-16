@@ -20,8 +20,7 @@ export default function Reports() {
   }, []);
 
   return (<Navbar Component={
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Reported Content</h1>
+    <div className="py-6">
       <ReportTable reports={reports} onUpdate={fetchReports} />
     </div>}/>
   );

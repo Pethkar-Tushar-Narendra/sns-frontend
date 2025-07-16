@@ -21,8 +21,7 @@ export default function Posts() {
 
   return (
     <Navbar Component={
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">Post Management</h1>
+    <div className="py-6">
       <PostTable posts={posts} onUpdate={fetchPosts} />
     </div>}/>
   );
